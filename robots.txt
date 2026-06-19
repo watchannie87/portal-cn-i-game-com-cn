@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://watchannie87.github.io/portal-cn-i-game-com-cn/sitemap.xml
