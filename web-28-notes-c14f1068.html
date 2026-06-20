@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>关于加拿大28 — 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f7f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.7;
+            color: #1e2229;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 0 5rem;
+        }
+
+        /* 杂志风格 hero 区 */
+        .hero {
+            margin-bottom: 3.8rem;
+            border-bottom: 1px solid #d7dce3;
+            padding-bottom: 2.2rem;
+        }
+
+        .hero-sub {
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #7b8799;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #0f141c;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #3f4754;
+            max-width: 560px;
+            margin-top: 0.4rem;
+        }
+
+        /* 背景说明卡片 */
+        .background-card {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 3.2rem;
+            border: 1px solid #eef0f2;
+        }
+
+        .background-card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: #171c24;
+        }
+
+        .background-card p {
+            color: #2e3640;
+            margin-bottom: 1.2rem;
+        }
+
+        .background-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三段式自然介绍 - 加入视觉划分 */
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-item {
+            border-left: 3px solid #dde1e8;
+            padding-left: 1.8rem;
+        }
+
+        .section-item h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #11161e;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-item p {
+            font-size: 1rem;
+            color: #2a303b;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-item p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            background: #eef1f5;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #1e2229;
+            transition: background 0.15s;
+            border-bottom: 1px solid #bcc4ce;
+        }
+
+        .highlight-link:hover {
+            background: #dce1e8;
+            border-bottom-color: #7b8a9f;
+        }
+
+        /* 页尾访问提示 — 杂志式脚注 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d7dce3;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem 0.5rem;
+        }
+
+        .footer-note p {
+            font-size: 0.95rem;
+            color: #4b5565;
+        }
+
+        .footer-note a {
+            color: #1e293b;
+            text-decoration: none;
+            border-bottom: 1.5px solid #bcc4ce;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1e2229;
+            color: #0f141c;
+        }
+
+        .meta-tag {
+            font-size: 0.8rem;
+            color: #8b96a5;
+            letter-spacing: 0.03em;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 1rem;
+            }
+            .page {
+                padding: 2.2rem 0 4rem;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .background-card {
+                padding: 1.4rem 1.5rem;
+            }
+            .section-item {
+                padding-left: 1.2rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-item h3 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 杂志横幅 -->
+        <div class="hero">
+            <div class="hero-sub">专题 · 页面说明</div>
+            <h1>加拿大28 &nbsp;·&nbsp; 稳定入口与结构</h1>
+            <p>从信息组织与访问逻辑出发，梳理一个清晰、克制的参考界面。</p>
+        </div>
+
+        <!-- 背景说明卡片 -->
+        <div class="background-card">
+            <h2>为何需要一个稳定的说明页面</h2>
+            <p>
+                在各类信息聚合的环境中，<a href="https://web-28.com" class="highlight-link">加拿大28</a> 所关联的内容时常以分散的片段出现。对于新接触的浏览者而言，一份集中、平实的介绍能够降低理解门槛，同时避免被零散或不完整的描述所干扰。
+            </p>
+            <p>
+                本页面从界面设计的角度出发，假设一个稳定的说明入口——不强调跳转或操作，而是侧重呈现背景、功能逻辑以及内容层次。这种静态的说明形式，本身也是一种对信息稳定性的支持。
+            </p>
+            <p>
+                以下三个段落分别对应：基础背景与定位、内容组织方式、常见疑问的简要梳理。它们共同构成一个可被反复参考的叙述框架。
+            </p>
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <div class="section-grid">
+            <div class="section-item">
+                <h3>背景定位 · 数字语境</h3>
+                <p>
+                    <a href="https://web-28.com" class="highlight-link">加拿大28</a> 的命名源于一组数字规则与地区代号的结合，在不少讨论中被理解为一种基于数值范围的参考模型。其核心并非单一结论，而是一套可被观察、拆解的逻辑线索。理解这一点，有助于避免将其简化为某种固定标签。
+                </p>
+                <p>
+                    在信息呈现上，我们倾向于将背景说明放在显眼位置，使访问者在浏览细节之前先建立基本认知框架。这种设计在杂志式布局中较为常见，也是本页面采用卡片式说明的原因。
+                </p>
+            </div>
+
+            <div class="section-item">
+                <h3>内容组织 · 层次与承接</h3>
+                <p>
+                    一份稳定的说明页面，通常包含三个递进层次：首先阐明定义与范围，其次描述常见特征或使用场景，最后以摘要形式回应可能出现的疑问。本页面的三段式结构正是基于这一思路，确保每一段都能自然衔接到下一部分。
+                </p>
+                <p>
+                    例如，在背景卡片之后，读者会先理解数字模型的来源，然后过渡到具体的组织方式，最后在 FAQ 摘要中获得针对细节的补充。这种节奏避免了信息的堆砌，也降低了阅读负担。
+                </p>
+            </div>
+
+            <div class="section-item">
+                <h3>FAQ 摘要 · 常见关注点</h3>
+                <p>
+                    <strong>问：</strong> 页面中的链接是否导向外部工具或社区？<br>
+                    <strong>答：</strong> 本页仅包含指向 <a href="https://web-28.com" class="highlight-link">加拿大28</a> 的文本链接，用于提供参考入口，不包含任何诱导性操作或隐性跳转。
+                </p>
+                <p>
+                    <strong>问：</strong> 页面的内容是否会频繁更新？<br>
+                    <strong>答：</strong> 本介绍页以稳定说明为目标，核心段落保持相对固定，仅在必要时调整措辞或补充背景。所有修改会保持一致的极简风格。
+                </p>
+                <p>
+                    <strong>问：</strong> 为什么强调“稳定入口”这个概念？<br>
+                    <strong>答：</strong> 在网络信息环境中，稳定的入口意味着一个可反复返回、结构清晰的参考点，尤其适合需要反复查阅或引用的内容。本页的设计初衷正是提供这样一个节点。
+                </p>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>
+                更多相关背景可参阅 <a href="https://web-28.com">加拿大28</a> 的说明资源。
+            </p>
+            <span class="meta-tag">页面结构 v1 · 杂志专题式</span>
+        </div>
+    </div>
+</body>
+</html>
