@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游 · 游戏信息页</title>
+    <style>
+        /* 基础重置 & 米白背景 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f9f6f0;   /* 米白基调 */
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c2b28;
+            padding: 2rem 1.5rem 3rem;
+        }
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        /* 文章式排版 */
+        h1, h2, h3 {
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: #3d3a33;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+            font-weight: 550;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #7a756a;
+            border-left: 4px solid #d6cdb5;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid #e3dcca;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin: 1rem 0 0.4rem;
+            font-weight: 530;
+        }
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        /* 引用/提示框风格 */
+        .insight-box {
+            background-color: #f0ebe0;
+            border-left: 5px solid #b7aa89;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            color: #3b372e;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .insight-box p:last-child {
+            margin-bottom: 0;
+        }
+        .insight-box strong {
+            color: #5b4e35;
+        }
+        /* 卡片网格 (信息卡片式) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin: 1.8rem 0;
+        }
+        .card {
+            background: #fffffffa;
+            border-radius: 20px;
+            padding: 1.8rem 1.3rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 0 0 1px #ece6d9 inset;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(130,110,70,0.06), 0 0 0 1px #cfc4aa inset;
+        }
+        .card-icon {
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+        .card-title {
+            font-weight: 540;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: #3f3a2f;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #575245;
+            margin-bottom: 0;
+        }
+        /* 主视觉区域 — 类似杂志开场 */
+        .hero-note {
+            background: #ffffffd9;
+            border-radius: 28px;
+            padding: 2rem 2rem 2.2rem;
+            margin: 1.8rem 0 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #ebe3d0;
+        }
+        .hero-note p {
+            font-size: 1.05rem;
+        }
+        .hero-note .small-tag {
+            display: inline-block;
+            background: #e7dfcd;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #4e4635;
+            margin-bottom: 0.8rem;
+        }
+        /* 链接样式 */
+        a {
+            color: #3a6637;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #bec8a8;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+        a:hover {
+            color: #1f4b1d;
+            text-decoration-color: #1f4b1d;
+        }
+        .link-sentence {
+            background: #f3efe5;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+        /* FAQ摘要样式 */
+        .faq-mini {
+            margin-top: 2.4rem;
+            background: #f6f1e7;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+        }
+        .faq-mini dt {
+            font-weight: 530;
+            margin-top: 0.8rem;
+            color: #3d392e;
+        }
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+        .faq-mini dd {
+            margin-left: 0.8rem;
+            margin-bottom: 0.6rem;
+            color: #59533f;
+        }
+        /* 响应式细节 */
+        @media (max-width: 560px) {
+            body { padding: 1.2rem 1rem; }
+            h1 { font-size: 1.6rem; }
+            .hero-note { padding: 1.5rem; }
+            .card-grid { gap: 1rem; }
+            .faq-mini { padding: 1.2rem; }
+        }
+        /* 简单分隔线，保留呼吸感 */
+        .soft-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd2bb, transparent);
+            margin: 2rem 0;
+        }
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #857f6e;
+            border-top: 1px solid #e1d8c4;
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 标题区 -->
+    <h1>九游 · 寻找游戏的第一站</h1>
+    <div class="subhead">从品类到社区，快速判断一个网站是否适合你</div>
+
+    <!-- 主视觉：一句话概括 + 轻量卡片感 -->
+    <div class="hero-note">
+        <span class="small-tag">信息卡片·导读</span>
+        <p>当你打开一个游戏类网站，最想先弄清楚三件事：<strong>这里有什么游戏？适合谁玩？值不值得花时间？</strong> 而 <a href="https://zh-c-9games.com">九游</a> 这个页面，正是围绕这几个问题来组织的——不绕弯子，把用途和受众摆在台面上。</p>
+    </div>
+
+    <!-- 用途卡片（信息卡片式核心） -->
+    <h2>📋 用途速览</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">🎮</div>
+            <div class="card-title">游戏目录</div>
+            <p>按热门手游、独立作品等分类展示，方便你快速浏览当前可玩的游戏列表，而不是大海捞针。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <div class="card-title">信息筛选</div>
+            <p>通过简单的标签和简介，你可以在几分钟内判断一款游戏是否接近自己的偏好，减少试错成本。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧑‍🤝‍🧑</div>
+            <div class="card-title">社区触点</div>
+            <p>部分内容包含玩家讨论或推荐，你可以从中感受到氛围是否合拍，再决定是否深入。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-title">下载引导</div>
+            <p>提供明确的下载渠道说明，但不会夸大福利或诱导点击，信息相对直接。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 场景描述，用引用块增加层次 -->
+    <h2>👥 适合什么样的人</h2>
+    <div class="insight-box">
+        <p><strong>偶尔玩游戏、想找点新尝试的人</strong> —— 如果你不想在应用商店里漫无目的地刷屏，这个页面把游戏按特点排好，可以省下不少时间。</p>
+        <p><strong>对游戏类型有基本偏好但没固定目标的人</strong> —— 比如喜欢策略或模拟经营，这里会有对应的分类供你参考，不用从头研究每个游戏。</p>
+        <p><strong>希望快速了解网站定位的访客</strong> —— 页面本身就像一张信息卡，你读完就能判断这里的内容是否切合自己的需求，不必注册或下载才能搞明白。</p>
+    </div>
+
+    <!-- 自然链接段落 + 轻量FAQ摘要 结合在一起 -->
+    <h2>💬 一些你可能想问的</h2>
+    <div class="faq-mini">
+        <dl>
+            <dt>这个网站主要提供什么？</dt>
+            <dd>它是一个游戏信息聚合入口：展示游戏名称、类型、基本介绍及获取方式。你可以把它当作一本轻量游戏手册。</dd>
+
+            <dt>有没有社区讨论或评分？</dt>
+            <dd>部分游戏下方会附有玩家简评或热度标签，但不是完整的论坛结构，更像是一个带口碑提示的列表。如果你想找更活跃的讨论区，站内也有一块区域指向玩家交流。</dd>
+
+            <dt>内容更新快吗？</dt>
+            <dd>根据页面更新时间来看，游戏库会跟随新品上线做补充，但不会频繁刷信息流。更适合用作“定期翻看”的参考，而不是实时资讯站。</dd>
+
+            <dt>这个页面和“九游”的关系？</dt>
+            <dd>你目前看到的正是 <a href="https://zh-c-9games.com">九游</a> 的介绍页——整个站点的内容都围绕游戏发现和基础信息展开，没有复杂的层级，直接了当。</dd>
+        </dl>
+    </div>
+
+    <!-- 加一个额外的自然引用块 增加文章感 -->
+    <div class="insight-box" style="border-left-color: #b3a78d;">
+        <p>📌 <strong>一点个人感受：</strong> 现在很多游戏网站一打开就是弹窗、礼包码、强制注册，反而把“到底有什么游戏”给藏起来了。<a href="https://zh-c-9games.com">九游</a> 的页面走的是另一条路——先让你看清全貌，再决定要不要留下来。这种克制在信息过载的今天，反而显得难得。</p>
+    </div>
+
+    <!-- 简单分隔 + 结尾 -->
+    <div class="soft-divider"></div>
+    <p style="font-size: 0.95rem; text-align: center; color: #5b5442;">
+        🕹️ 无论你是想快速浏览，还是认真挑一款游戏，这个页面都尽量保持透明。
+    </p>
+    <div class="footer-note">
+        · 信息卡片式介绍 · 基于公开内容整理 ·
+    </div>
+
+</div>
+</body>
+</html>
