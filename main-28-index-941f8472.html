@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加拿大28 · 站点专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2d3e4f;
+        }
+
+        .magazine {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* Hero 横幅 —— 杂志专题开场 */
+        .hero {
+            background: linear-gradient(135deg, #eef2f7 0%, #dce3eb 100%);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            text-align: center;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .hero::after {
+            content: "✦";
+            font-size: 1.2rem;
+            color: #7d8b9f;
+            opacity: 0.3;
+            position: absolute;
+            bottom: 1rem;
+            right: 2rem;
+        }
+
+        .hero h1 {
+            font-weight: 500;
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            color: #1f2b38;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #5b6d7e;
+            border-top: 1px solid #cad2db;
+            display: inline-block;
+            padding-top: 0.7rem;
+            margin-top: 0.2rem;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        /* 卡片式分区 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e1e6ec;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-weight: 450;
+            font-size: 1.6rem;
+            color: #1f2b38;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dotted #d6dee6;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: #2d4053;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #3d4f60;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #f4f7fa;
+            border-left: 4px solid #8899ae;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+            font-size: 0.98rem;
+            color: #304153;
+        }
+
+        .inline-link {
+            color: #2d5f7a;
+            text-decoration: none;
+            border-bottom: 1px solid #b5c9d9;
+            transition: border-color 0.1s, color 0.1s;
+            font-weight: 400;
+        }
+
+        .inline-link:hover {
+            color: #1b3f57;
+            border-bottom-color: #1b3f57;
+        }
+
+        .site-list {
+            list-style: none;
+            margin: 1rem 0 0 0;
+        }
+
+        .site-list li {
+            padding: 0.35rem 0 0.35rem 1.2rem;
+            position: relative;
+            color: #364a5b;
+        }
+
+        .site-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #7f93a8;
+            font-weight: 300;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f2b38;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin: 0.1rem 0 0 0;
+            color: #4d6276;
+        }
+
+        /* 页尾提示 */
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.8rem 1.5rem;
+            background: #e8ecf2;
+            border-radius: 60px 60px 30px 30px;
+            border: 1px solid #d5dde6;
+            color: #3a4e62;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-note a {
+            color: #2d5f7a;
+            text-decoration: none;
+            border-bottom: 1px solid #b5c9d9;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1b3f57;
+        }
+
+        .footer-note .small-symbol {
+            opacity: 0.25;
+            font-size: 0.9rem;
+            margin: 0 0.2rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.5rem 1.3rem;
+            }
+            .card h2 {
+                font-size: 1.35rem;
+            }
+        }
+
+        hr.soft {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d1dae3, transparent);
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+
+        <!-- HERO 区块 -->
+        <div class="hero">
+            <h1>加拿大28 · 站点介绍</h1>
+            <div class="sub">数字氛围 · 信息索引</div>
+            <p style="margin-top: 1.2rem; color: #3b4e61; font-size: 1.05rem; max-width: 520px; margin-left: auto; margin-right: auto;">
+                一个关于数字组合与数据观察的专题空间，内容围绕 28 个数值区间展开。
+            </p>
+        </div>
+
+        <!-- 背景说明卡片 -->
+        <div class="card">
+            <h2>背景 · 平台轮廓</h2>
+            <p>
+                <a href="https://main-28.com" class="inline-link">加拿大28</a> 所呈现的站点，最初源于对特定数字频率与组合模式的整理。它既非预测工具，也不涉及任何形式的金融或博彩建议，而是一个提供历史数据排列与参考思路的信息型页面。运营方长期保持“只展示、不诱导”的原则，所有公开内容均以客观陈列为主。
+            </p>
+            <div class="highlight">
+                ★ 站点不收集用户隐私，不设跳转弹窗，所有数据仅用于个人观察与学习。
+            </div>
+            <p>
+                网站整体采用轻量设计，没有多余装饰，重点放在数字表格与周期统计上。许多访问者将其作为辅助参考之一，配合自身理解来阅读数据。值得注意的是，任何数字模式都不具备必然性，浏览时请保持理性判断。
+            </p>
+        </div>
+
+        <!-- 三段自然介绍：特点+场景+可信说明 融合 -->
+        <div class="card">
+            <h2>特点 · 场景 · 可信说明</h2>
+
+            <h3>▎信息整理方式</h3>
+            <p>
+                所有展示均来自公开的数值记录，并按循环周期进行归类。页面结构清晰，主次分明，无论是第一次接触还是长期使用者，都能快速定位到感兴趣的区间段。板块之间设有微妙的视觉分隔，方便对比查阅。
+            </p>
+
+            <h3>▎常见使用情境</h3>
+            <p>
+                部分用户会在闲暇时浏览 <a href="https://main-28.com" class="inline-link">加拿大28</a> 的数据陈列，作为一种数字观察习惯。也有人将其视为分析概率波动的素材库，但网站本身不提供任何“必中”或“保证”类表述。适合对数字规律有好奇心、但清楚概率本质的读者。
+            </p>
+
+            <h3>▎可信度与边界</h3>
+            <p>
+                运营方定期更新原始数据，并保留最近数期的记录快照，确保信息可追溯。同时页面明确标注“所有内容仅供参考，不构成任何决策依据”。这种透明度让站点在长期维护中积累了一定的口碑——不是因为它能预测什么，而是因为它诚实且稳定。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 + 额外说明 混合在一个卡片中 -->
+        <div class="card">
+            <h2>常见理解 · 补充说明</h2>
+
+            <div class="faq-item">
+                <strong>这个网站是官方平台吗？</strong>
+                <p>不是。它只是一个独立的信息索引站，与任何官方机构无关，也不代表任何团体。请将其理解为爱好者整理的资料页面。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>数据可以用来做决策吗？</strong>
+                <p>不建议。所有数字组合均为历史记录，未来没有任何重复或规避的必然性。请基于个人判断理性使用。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>是否收费或需要注册？</strong>
+                <p>完全免费，无需注册或提供任何个人信息。页面无付费墙，所有板块均直接可见。</p>
+            </div>
+
+            <hr class="soft">
+
+            <ul class="site-list">
+                <li>内容更新周期：每日或每轮次结束后更新</li>
+                <li>数据保留：最近 30–60 期历史陈列</li>
+                <li>移动端适配良好，支持夜间模式（跟随系统）</li>
+            </ul>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <span class="small-symbol">◈</span>
+            若你希望直接查看数据陈列与周期统计，可前往 
+            <a href="https://main-28.com">加拿大28</a> 
+            的主页面。所有内容均保持原始风格，无多余引导。
+            <span class="small-symbol">◈</span>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #677c91;">
+                — 数字仅供参考，请保持独立思考 —
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
